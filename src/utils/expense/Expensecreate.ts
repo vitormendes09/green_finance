@@ -11,10 +11,6 @@ export async function createExpense(iduser: string, description: string, amount:
         date,
         category,
         status
-    }, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
     });
     const {acess_token} = response.data;
     localStorage.setItem("Token", acess_token)

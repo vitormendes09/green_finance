@@ -5,9 +5,7 @@ const API_URL = "https://gerenciamento-financeiro-1.onrender.com";
 export async function getExpenseByUser(iduser: string) {
     const token = localStorage.getItem("Token");
     const response = await axios.get(`${API_URL}/expense/getbyuser/${iduser}`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
+       
     });
     const {acess_token} = response.data;
     localStorage.setItem("Token", acess_token)
