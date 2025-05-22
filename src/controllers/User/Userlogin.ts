@@ -1,11 +1,11 @@
-import { login } from "@/utils/user/Authlogin";
+import  loginUser  from "@/utils/user/Authlogin";
 
 
 const authControllerLogin = {
     async loginUser(email: string, password: string): Promise<boolean> {
 
         try {
-            const token = await login(email, password);
+            const token = await loginUser.loginUser(email, password);
             
                 return true;
             

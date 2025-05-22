@@ -1,25 +1,35 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API_URL = "https://gerenciamento-financeiro-1.onrender.com"
+const API_URL = "https://gerenciamento-financeiro-1.onrender.com";
 
-export async function login(username: string, password: string) {
+const loginUser = async (email: string, password: string) => {
+  try {
     const response = await axios.post(`${API_URL}/auth/login`, {
-        username,
-        password
+      email,
+      password,
     });
 
-    const {acess_token} = response.data;
-    localStorage.setItem("Token", acess_token)
-    return acess_token;
+    const { token } = response.data;
 
+    // Salva o token no localStorage
+    localStorage.setItem("token", token);
 
-   
-}
+    // Decodifica o token para extrair o id e o nome
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const user = payload.user;
 
-export function logout() {
-    localStorage.removeItem("Token");
-}
+    return {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      token: token,
+    };
+  } catch (err) {
+    console.error("Erro ao fazer login:", err);
+    throw new Error("Login inválido");
+  }
+};
 
-export function getToken() {
-    return localStorage.getItem("Token");
-}
+export default {
+  loginUser,
+};
