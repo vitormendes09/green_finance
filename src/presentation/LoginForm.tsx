@@ -58,6 +58,10 @@ export default function LoginPage() {
     }
   };
 
+  const hanleClick = () => {
+    router.push('/Register');
+  };
+
   return (
     <Container>
       <FormWrapper>
@@ -108,7 +112,7 @@ export default function LoginPage() {
             <Button type="submit" variant="contained" color="success" fullWidth sx={{ mr: 1 }}>
               Login
             </Button>
-            <Button variant="outlined" color="primary" fullWidth sx={{ ml: 1 }}>
+            <Button variant="outlined" color="primary" fullWidth sx={{ ml: 1 }} onClick={hanleClick}>
               Registrar-se
             </Button>
           </Box>

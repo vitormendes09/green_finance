@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import authControllerRegister from "@/controllers/User/Userregister";
@@ -68,9 +70,9 @@ export default function RegisterPage() {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                 />
-                <button type="submit">Registrar</button>
-
-                <button onClick={() => router.push("/")}>Voltar ao Login</button>
+                <button type="button" onClick={() => router.push("Index")}>
+                    Voltar ao Login
+                </button>
                 
             </form>
             {error && <p>{error}</p>}
