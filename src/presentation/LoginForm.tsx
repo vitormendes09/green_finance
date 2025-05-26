@@ -11,6 +11,7 @@ import {
   Alert,
 } from '@mui/material';
 import { styled } from '@mui/system';
+import  Register from '@/app/register/page'; 
 
 
 
@@ -59,7 +60,7 @@ export default function LoginPage() {
   };
 
   const hanleClick = () => {
-    router.push('/Register');
+    router.push('/register');
   };
 
   return (
