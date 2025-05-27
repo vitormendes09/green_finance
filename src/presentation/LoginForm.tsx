@@ -40,24 +40,25 @@ export default function LoginPage() {
   const router = useRouter();
 
  
-
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
+  e.preventDefault();
+  setError('');
 
-    try {
-      const user = await authControllerLogin.loginUser(email, password);
-      if (user) {
-
-        router.push('/pages/dashboard');
-      } else {
-        setError('Email ou senha inválidos');
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-      setError('Erro ao fazer login. Tente novamente.');
+  try {
+    const user = await authControllerLogin.loginUser(email, password);
+    if (user) {
+      // Armazena o ID do usuário para a Dashboard usar
+      localStorage.setItem("userId", user.id);
+      router.push('/dashboard'); // redireciona para a dashboard
+    } else {
+      setError('Email ou senha inválidos');
     }
-  };
+  } catch (error) {
+    console.error('Login error:', error);
+    setError('Erro ao fazer login. Tente novamente.');
+  }
+};
+
 
   const hanleClick = () => {
     router.push('/register');

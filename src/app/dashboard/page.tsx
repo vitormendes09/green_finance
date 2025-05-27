@@ -1,10 +1,10 @@
-import RegisterPage from "@/presentation/RegisterForm";
+import Dashboard from "@/presentation/dashboard/dashboard";
 
-const Register = () => {
+const dashboard = () => {
   return (
     <div>
-      <RegisterPage />
+      <Dashboard />
     </div>
   );
 };
-export default Register;
+export default dashboard;

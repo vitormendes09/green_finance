@@ -17,7 +17,7 @@ interface ExpenseCardProps {
   onDelete?: (id: string) => void;
 }
 
-export default function ExpenseCard({ expense, onDelete }: ExpenseCardProps) {
+export default function ExpenseCard( { expense, onDelete }: ExpenseCardProps) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 

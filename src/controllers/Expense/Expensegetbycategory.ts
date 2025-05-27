@@ -1,14 +1,16 @@
-import { getExpenseByUser } from "@/utils/expense/Expensegetbyuser";
 
-const authControllerGetExpenseByUser = {
-  async get(iduser: string): Promise<any> {
-    try {
-      const response = await getExpenseByUser(iduser);
-      return response;
-    } catch (error) {
-      console.error("Failed to get expense by user:", error);
-      return null;
-    }
-  },
+import { byCategory } from "@/utils/expense/Expensegetbycategory";
+
+const authControllerGetExpenseByCategory = {
+  async get(userId: string, category: string): Promise<any> {
+      try {
+        const response = await byCategory(userId, category);
+        return response;
+      } catch (error) {
+        console.error("Failed to get expense by category:", error);
+        return null;
+      }
+    },
 };
-export default authControllerGetExpenseByUser;
+export default authControllerGetExpenseByCategory;
+
