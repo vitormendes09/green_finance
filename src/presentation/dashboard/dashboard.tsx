@@ -87,7 +87,7 @@ const Dashboard = () => {
       {/* Título e botão em linha */}
       <Box display="flex" justifyContent="space-between" alignItems="center" mt={4} mb={2}>
         <Typography variant="h6">Minhas despesas:</Typography>
-        <Link href="/addexpense" passHref>
+        <Link href="/login" passHref>
           <Button variant="contained" color="primary">
             Adicionar Despesa
           </Button>

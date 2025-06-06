@@ -27,7 +27,7 @@ export default function ExpenseCard( { expense, onDelete }: ExpenseCardProps) {
 
     const success = await authControllerDeleteExpense.delete(expense.id!);
     if (success && onDelete) {
-      onDelete(expense.id!);
+      onDelete(expense.id);
     }
   };
 
